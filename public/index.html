@@ -10,16 +10,15 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="stylesheet" href="./css/index.css">
   <link rel="icon" href="./assets/icon/favicon.jpg">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 <header class="header">
-  <div id="img-header">
-    <a href="index.html"><img src="./assets/Logo-site.png" alt="Logo do site"></a>
+  <div id="div-img">
+    <a href="index.html"><img id="img-header" src="./assets/Logo-site.png" alt="Logo do site"></a>
   </div>
-  <div>
+  <div id="div-nav">
     <ul>
       <a href="">
         <li> Minha História</li>
@@ -35,27 +34,27 @@
         <li>Cadastro</li>
       </a>
       <a href="">
-        <li class="botao-login"><img src="" alt="">Login</li>
+        <li ><img src="./assets/icon/user.png" alt="profile" style="width: 15px;">Login</li>
       </a>
     </ul>
   </div>
 </header>
 <main>
   <section class="banner">
-    <div class="frase-inicio">
-      <div>
-        <p>O Corinthians é muito mais que um clube de futebol. O Corinthians é uma religião, uma grande nação, mas muito
-          mais que isso, o Corinthians é uma voz. O Corinthians é uma força, uma forma de expressão que a sua população
-          tem. A torcida corinthiana usa o seu clube, o seu time, a sua expressão física como forma de contestação de
-          tudo aquilo que não lhes é dado de direito.
-        </p>
-        <p>- Dr Socrates </p>
-      </div>
-      <img src="./assets/Socrates Jogador.jpg" alt="socrates">
-  </section>
-  <section>
+  <div class="banner-inicio">
+    <p>O Corinthians é muito mais que um clube de futebol. O Corinthians é uma religião, uma grande nação, mas muito
+      mais que isso, o Corinthians é uma voz. O Corinthians é uma força, uma forma de expressão que a sua população
+      tem. A torcida corinthiana usa o seu clube, o seu time, a sua expressão física como forma de contestação de
+      tudo aquilo que não lhes é dado de direito.</p>
+
+    <p id="citacao">- Dr Sócrates</p>
+  </div>
+
+  <img id="img-banner" src="./assets/Socrates Jogador.jpg" alt="socrates">
+</section>
+  <section class="banner2">
     <div>
-      <h2>Alma Corinthiana: <br>Conheça a História, as Curiosidades e a Lenda do Sport Club Corinthians Paulista, <br>um
+      <h2>Conheça a História, as Curiosidades e a Lenda do Sport Club Corinthians Paulista, <br>um
         Gigante que move a paixão de milhões.</h2>
       <p>Navegue pela história do Timão, mergulhe nas <b>curiosidades</b> e descubra como um time fundado por operários
         moldou o <b>futebol brasileiro</b> e a vida de um <b>Fiel</b>.</p>
@@ -101,11 +100,7 @@
 <footer class="footer-container">
     <div class="footer-content">
         
-        <div class="footer-section footer-about">
-            <h4>Sobre o Projeto</h4>
-            <p>Site desenvolvido como projeto acadêmico para a disciplina de [Nome da Disciplina] da [Nome da Faculdade].</p>
-            <p>Tema: Alma Corinthiana.</p>
-        </div>
+      
 
         <div class="footer-section footer-navigation">
             <h4>Navegação</h4>
@@ -118,8 +113,8 @@
         <div class="footer-section footer-contact">
             <h4>Contato</h4>
             <p>Dúvidas ou Feedback?</p>
-            <p>E-mail: [Seu Email Aqui]</p>
-            <p>RA: [Seu RA Aqui]</p>
+            <p>E-mail: </p>
+            
         </div>
         
     </div>

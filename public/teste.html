@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - Alma Corinthiana</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos do Header (Apenas para contexto, ajuste conforme o seu) */
+        .header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ffaa00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 40px; /* Ajuste conforme seu logo */
+            margin-right: 10px;
+        }
+
+        .header .logo h1 {
+            font-size: 1.5em;
+            color: #333;
+            margin: 0;
+        }
+
+        .header nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Estilos para a seção principal da Home */
+        .hero-section {
+            background-color: #0A0000; /* Seu fundo preto */
+            color: #ffffff;
+            padding: 50px 0; /* Espaçamento vertical */
+            display: flex; /* Permite alinhar o texto e a imagem lado a lado */
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            align-items: center; /* Centraliza o conteúdo verticalmente */
+            min-height: 500px; /* Altura mínima para a seção */
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px; /* Largura máxima do conteúdo */
+            margin: 0 auto; /* Centraliza o conteúdo dentro da seção */
+            gap: 40px; /* Espaço entre o texto e a imagem */
+            flex-wrap: wrap; /* Quebra para linha em telas menores */
+            padding: 0 20px; /* Padding nas laterais internas */
+        }
+
+        .hero-quote {
+            flex: 1; /* Ocupa o espaço disponível */
+            max-width: 600px; /* Limita a largura do texto para melhor leitura */
+            text-align: left;
+        }
+
+        .hero-quote p {
+            font-size: 1.3em; /* Aumenta o tamanho da fonte */
+            line-height: 1.6; /* Aumenta o espaçamento entre as linhas */
+            font-weight: 500; /* Deixa o texto um pouco mais encorpado */
+            margin-bottom: 20px;
+        }
+
+        .hero-quote cite {
+            display: block;
+            font-style: normal;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #ffaa00; /* Dourado para o nome do Sócrates */
+        }
+
+        .hero-image {
+            flex-shrink: 0; /* Impede que a imagem encolha */
+            width: 350px; /* Largura fixa para a imagem */
+            height: auto; /* Mantém a proporção */
+            overflow: hidden; /* Garante que a imagem não saia do container */
+            border-radius: 5px; /* Bordas levemente arredondadas */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+            display: block; /* Remove espaços extras abaixo da imagem */
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 900px) {
+            .hero-content {
+                flex-direction: column; /* Empilha texto e imagem verticalmente */
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-quote {
+                max-width: 90%; /* Aumenta a largura do texto em telas menores */
+                text-align: center;
+            }
+            
+            .hero-image {
+                width: 80%; /* Ajusta a largura da imagem */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-section {
+                padding: 30px 0;
+            }
+            .hero-quote p {
+                font-size: 1.1em;
+            }
+            .hero-image {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="seu-logo-mosqueteiro.png" alt="Alma Corinthiana Logo">
+            <h1>Alma Corinthiana</h1>
+        </div>
+        <nav>
+            <a href="#">Minha História</a>
+            <a href="#">História do Timão</a>
+            <a href="#">Quiz Fiel</a>
+            <a href="#">Cadastro</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-quote">
+                <p>"O Corinthians é muito mais que um clube de futebol. O Corinthians é uma religião, uma grande nação, mas muito mais que isso, o Corinthians é uma voz. O Corinthians é uma forma de expressão que a sua população tem. A torcida corintiana usa o seu clube, o seu time, a sua expressão física como forma de contestação de tudo aquilo que não lhes é dado de direito."</p>
+                <cite>— Dr. Sócrates</cite>
+            </div>
+            <div class="hero-image">
+                <img src="foto-socrates.jpg" alt="Dr. Sócrates comemorando">
+            </div>
+        </div>
+    </section>
+
+    </body>
+</html>

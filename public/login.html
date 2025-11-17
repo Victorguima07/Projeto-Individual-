@@ -10,7 +10,7 @@
 
     <script src="./js/sessao.js"></script>
 
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="./css/estilo.css">
     <link rel="icon" href="./assets/icon/favicon2.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
@@ -19,26 +19,34 @@
 
     <!--Header-->
 
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+      <header class="header">
+  <div id="img-header">
+    <a href="index.html"><img src="./assets/Logo-site.png" alt="Logo do site"></a>
+  </div>
+  <div>
+    <ul>
+      <a href="">
+        <li> Inicio</li>
+      </a>
+      <a href="">
+        <li> Minha História</li>
+      </a>
+      <a href="historia.html">
+        <li> História do Timão</li>
+      </a>
+      <a href="">
+        <li>Quiz Fiel</li>
+      </a>
+      </a>
+      <a href="">
+        <li>Cadastro</li>
+      </a>
+      <a href="">
+        <li class="botao-login"><img src="" alt="">Login</li>
+      </a>
+    </ul>
+  </div>
+</header>
 
 
     <div class="login">
@@ -125,7 +133,6 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.CPF_USUARIO = json.CPF;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)

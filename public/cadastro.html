@@ -24,6 +24,9 @@
   <div>
     <ul>
       <a href="">
+        <li> Inicio</li>
+      </a>
+      <a href="">
         <li> Minha História</li>
       </a>
       <a href="historia.html">
@@ -59,30 +62,23 @@
                          Assim que inserir vá para o script abaixo.
                      -->
           <div class="campo">
-            <div>
-              <img src="./assets/DeWatermark.ai_1762454841950.jpeg" alt="">
-            </div>
-            <label>Usuário:</label><br>
+            <span>Código de ativação:</span>
             <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
           </div>
           <div class="campo">
-            <label>Nome:</label><br>
+            <span>Nome:</span>
             <input id="nome_input" type="text" placeholder="Seu nome" />
           </div>
           <div class="campo">
-            <label>E-mail:</label><br>
+            <span>E-mail:</span>
             <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
           </div>
           <div class="campo">
-            <label>CPF:</label><br>
-            <input id="cpf_input" type="text" placeholder="Apenas números..." />
-          </div>
-          <div class="campo">
-            <label>Senha:</label><br>
+            <span>Senha:</span>
             <input id="senha_input" type="password" placeholder="******" />
           </div>
           <div class="campo">
-            <label>Confirmação da Senha:</label><br>
+            <span>Confirmação da Senha:</span>
             <input id="confirmacao_senha_input" type="password" placeholder="******" />
           </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
@@ -120,72 +116,24 @@
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
-    var cpfVar = cpf_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var codigoVar = codigo_input.value;
     var idEmpresaVincular
 
     // Verificando se há algum campo em branco
-    if (nomeVar == "") {
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      codigoVar == ""
+    ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "Preencha o campo nome!";
+        "(Mensagem de erro para todos os campos em branco)";
+
       finalizarAguardar();
-      return false;
-    }else if(emailVar == ""){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Preencha o campo email!";
-      finalizarAguardar();
-      return false;
-    }else if(cpfVar == ""){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Preencha o campo CPF!";
-      finalizarAguardar();
-      return false;
-    } else if(senhaVar == ""){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Preencha o campo senha!";
-      finalizarAguardar();
-      return false;
-    }else if(confirmacaoSenhaVar == ""){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Preencha o campo de confirmar senha!";
-      finalizarAguardar();
-      return false;
-    } else if(nomeVar.length <= 1){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Nome inválido! O nome deve ter mais de 1 caracter!";
-        finalizarAguardar();
-      return false;
-    } else if(!emailVar.includes('@') || !emailVar.includes('.')){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Email inválido! O email deve conter '@' e '.'!";
-        finalizarAguardar();
-      return false;
-    }else if(senhaVar.length <= 6){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Senha inválida! A senha deve conter mais de 6 caracteres";
-        finalizarAguardar();
-      return false;
-    }else if(confirmacaoSenhaVar != senhaVar){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Confirmação de senha inválida! As duas senhas precisam ser exatamente iguais!";
-        finalizarAguardar();
-      return false;
-    }else if(cpfVar.length != 11){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "CPF inválido! O CPF deve ser exatamente 11 números";
-        finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
@@ -215,7 +163,6 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        cpfServer: cpfVar,
         senhaServer: senhaVar,
         idEmpresaVincularServer: idEmpresaVincular
       }),
