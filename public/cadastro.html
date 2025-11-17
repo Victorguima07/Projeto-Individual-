@@ -11,21 +11,18 @@
   <script src="./js/sessao.js"></script>
 
   <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
+  <link rel="icon" href="./assets/icon/favicon.jpg" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
 <body onload="listar()">
   <!--header inicio-->
   <header class="header">
-  <div id="img-header">
-    <a href="index.html"><img src="./assets/Logo-site.png" alt="Logo do site"></a>
+  <div id="div-img">
+    <a href="index.html"><img id="img-header" src="./assets/Logo-site.png" alt="Logo do site"></a>
   </div>
-  <div>
+  <div id="div-nav">
     <ul>
-      <a href="">
-        <li> Inicio</li>
-      </a>
       <a href="">
         <li> Minha História</li>
       </a>
@@ -40,7 +37,7 @@
         <li>Cadastro</li>
       </a>
       <a href="">
-        <li class="botao-login"><img src="" alt="">Login</li>
+        <li><img src="./assets/icon/user.png" alt="profile" style="width: 15px;">Login</li>
       </a>
     </ul>
   </div>
@@ -56,14 +53,19 @@
     <div class="container">
       <div class="card card-cadastro">
         <h2>Bem-vindo!</h2>
+        <h4>Insira suas informações pessoais para criar sua conta</h4>
+        <p>Você ja tem uma conta? <a href="">Entrar</a></p>
         <div class="formulario">
           <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
+          <div>
+            <img src="./assets/DeWatermark.ai_1762454841950.jpeg" alt="">
+          </div>
           <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
+            <span>Usuário:</span>
+            <input id="codigo_input" type="text" placeholder="Informe seu usuário" />
           </div>
           <div class="campo">
             <span>Nome:</span>
@@ -91,15 +93,6 @@
       </div>
     </div>
   </div>
-
-  <!--footer inicio-->
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
-    </div>
-  </div>
-  <!--footer fim-->
 </body>
 
 </html>
