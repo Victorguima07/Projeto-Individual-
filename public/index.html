@@ -26,9 +26,6 @@
       <a href="historia.html">
         <li> História do Timão</li>
       </a>
-      <a href="">
-        <li>Quiz Fiel</li>
-      </a>
       </a>
       <a href="">
         <li>Cadastro</li>
@@ -63,7 +60,7 @@
     <div id="infos-pai">
 
       <div class="infos-filho">
-        <div id="card-historia">
+        <div>
           <h3>História do timão</h3>
           <img src="./assets/icon/trophy_2209447.png" alt="taça">
           <p>Nossa história completa! Dos operários fundadores às conquistas mundiais. Fatos e curiosidades essenciais
@@ -71,16 +68,18 @@
         </div>
       </div>
       <div class="infos-filho">
-        <div id="card-quiz">
+        <div>
           <h3>Quiz Fiel</h3>
           <img src="./assets/cerebro-humano.png" alt="quiz">
           <p>Teste seus conhecimentos sobre o Alvinegro! São 10 perguntas rápidas para provar que você é Fiel de
             verdade.
           </p>
+          <br>
+          <button onclick="jogar()">Jogue Agora</button>
         </div>
       </div>
       <div class="infos-filho">
-        <div id="card-dash">
+        <div>
           <h3>Dashboard</h3>
           <img src="./assets/grafico.png" alt="quiz">
           <p>Acompanhe os resultados do Quiz, veja as estatísticas de acerto e confira alguns dados e números.</p>
@@ -128,18 +127,26 @@
       </div>
     </div>
 
+    <div class="footer-section">
+      <h4>Dúvida ou Feedback</h4>
+      <div id="section-navegacao">
+        <ul>
+          <li> Email:<a href="mailto:email@provedor.com.br"> victor.gsouza@sptech.school</a></li>
+        </ul>
+      </div>
+    </div>
+
   <div class="footer-bottom">
     <p style="color: #F7F7FF;">&copy; 2025 Alma Corinthiana | Todos os direitos reservados.</p>
   </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
 </html>
+<script>
+  function jogar(){
+     
+    window.location.href = "login.html";
+
+  }
+
+
+</script>

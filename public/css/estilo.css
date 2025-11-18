@@ -104,8 +104,8 @@ a:nth-of-type(5):hover {
 /* LOGIN */
 
 .login {
-  height: var(--tamanho-login);
-background-color: #0A0000;
+
+  background-color: #0A0000;
   background-size: cover;
 }
 
