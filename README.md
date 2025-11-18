@@ -2,6 +2,8 @@
 
 # 🦅 Alma Corinthiana - Projeto Individual SPTECH
 
+<img width="1280" height="320" alt="Logo-site" src="https://github.com/user-attachments/assets/9a212487-1668-4ae1-b185-ae11d45528f9" />
+
 ## 🏁 Visão Geral do Projeto
 
 Este projeto individual foi desenvolvido para a disciplina de Análise e Desenvolvimento de Sistemas (ADS) da **SPTECH**. O objetivo é criar uma aplicação web interativa e informativa centrada no **Sport Club Corinthians Paulista**. A aplicação combina elementos de história, paixão pessoal (minha jornada como torcedor), curiosidades e um quiz básico, culminando em uma **dashboard** que exibe os resultados.
