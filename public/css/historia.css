@@ -84,171 +84,144 @@ a:nth-of-type(4):hover {
 }
 
 /* fim do header */
-
-.banner {
-
+#banner {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0A0000;
-    min-height: 80vh;
-    padding: 120px 3rem 50px 3rem;
+    min-height: 60vh;
+    padding: 120px 3rem 50px 3rem;    
+    background-image:url('../assets/historia/arena.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-
-.banner-inicio {
+#banner-inicio {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    width: 50%;
-    max-width: 650px;
-    padding: 0 40px 0 0;
+    align-items: center;
+    width: 90%; 
+    max-width: 800px; 
     color: white;
     font-family: 'Poppins', sans-serif;
-}
-
-
-.banner-inicio p {
-    font-size: 1.4em;
-    line-height: 1.7;
-    font-weight: 500;
-    margin-bottom: 25px;
-}
-
-
-.banner-inicio #citacao {
-    align-self: flex-start;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #DAA520;
-}
-
-
-#img-banner {
-    width: 350px;
-    height: 400px;
-    object-fit: cover;
-    padding: 0;
-    border-radius: 5px;
-}
-
-.banner2 {
-    display: flex;
-    flex-direction: column;
-    background-color: #F7F7FF;
-    padding: 90px 3rem 50px 3rem;
-}
-
-#banner-apresentacao {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
-
 }
 
-#infos-pai {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    width: 100%;
-    padding: 3rem 0;
-}
-
-.infos-filho {
-    flex: 1;
-    max-width: 420px;
-    background: #F7F7FF;
-    border: 2px solid #0A0000;
-    border-radius: 15px;
-    padding: 3rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 480px;
-    justify-content: space-between;
-}
-
-.infos-filho h3 {
-    font-size: 1.6rem;
+#banner-inicio h1 {
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-    color: #FF1B1C;
+    color: #DAA520; 
+    padding-bottom: 15px;
+    margin-top: 30px; 
+    margin-bottom: 20px;
 }
 
-.infos-filho img {
-    width: 140px;
-    height: auto;
-    margin-bottom: 1rem;
+main{
+    background-color: #F7F7FF;
 }
 
-.infos-filho p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 320px;
-}
-
-.infos-filho button{
-    width: 100%;
-  padding: 12px 0;
-  border: none;
-  border-radius: 20px;
-  background-color: #FF1B1C;
-  color: #F7F7FF;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.infos-filho button:hover {
-  background-color: #FF1B1C;
-  transform: scale(1.03);
-}
-
-#sobre {
-    width: 100%;
-    background-color: #0A0000;
-    padding: 50px 3rem;
+.section-historia{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-#sobre h2 {
-    color: #F7F7FF;
-    margin-bottom: 30px;
-    font-size: 2rem;
-}
-
-.sobre-container {
+.div-historia{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
+    flex-direction: row;
+    padding: 5rem 3rem 3rem 5rem;
+    box-shadow: 10px 10px 5px 5px grey;
+    border-radius: 15px;
+    margin:2rem 4rem 2rem 4rem;
 }
 
-.sobre-img {
-    width: 280px;
-    height: 450px;
+.div-historia img{
+     width: 350px;
+    height: 250px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-#texto-sobre {
-    flex: 1;
-    color: #F7F7FF;
-    text-align: center;
+.div-texto-historia{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 1rem 2rem;
+    margin: 0 5rem 0 5rem;
     font-size: 1.1rem;
-    max-width: 700px;
+}
+.div-texto-historia h3{
+    color: #DAA520;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.descricao{
+    color: #A9A9A9;
+    font-weight: bold;
+    font-size: 0.8rem;
+     font-family: 'Poppins', sans-serif;
+}
+
+.section-curiosidades{
+    display: flex;
+    flex-direction: column;
+}
+.section-curiosidades h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #DAA520; 
+    padding-bottom: 15px;
+    margin-top: 30px; 
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.div-curiosidades{
+    display: flex;
+    flex-direction: row;
+    background-color: #0A0000;
+    color: #F7F7FF;
+    padding: 5rem 3rem 3rem 5rem;
+    box-shadow: 10px 10px 5px 5px grey;
+    border-radius: 15px;
+    margin:2rem 4rem 2rem 4rem;
+   font-size: 1.1rem;
+}
+
+.curiosidades{
+    display: flex;
+    flex-direction: column;
+    background-color: #0A0000;
+    color: #F7F7FF;
+    padding: 5rem 3rem 3rem 5rem;
+    box-shadow: 10px 10px 5px 5px grey;
+    border-radius: 15px;
+    margin:2rem 4rem 2rem 4rem;
+    font-size: 1.1rem;
+}
+
+.div-curiosidades img{
+     width: 350px;
+    height: 250px;
+    object-fit: fill;
+    border-radius: 10px;
+
+}
+
+.div-curiosidades h3{
+    color: #DAA520;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.curiosidades h3{
+    color: #DAA520;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer {
@@ -256,6 +229,7 @@ a:nth-of-type(4):hover {
     color: #0A0000;
     padding-top: 3rem;
     border-top: 5px solid #DAA520;
+    margin-top: 4rem;
 }
 
 .footer-container {
@@ -304,7 +278,7 @@ a:nth-of-type(4):hover {
 .footer-section p {
     margin-bottom: 10px;
     font-size: 1rem;
-}
+}   
 
 
 .footer-bottom {
