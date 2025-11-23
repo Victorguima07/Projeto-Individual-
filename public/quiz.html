@@ -1,47 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo - Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public/css/quiz.css">
 </head>
 
 
 <body onload="onloadEsconder()">
+
+    <header class="header">
+        <div id="div-img">
+            <a href="index.html"><img id="img-header" src="./assets/Logo-site.png" alt="Logo do site"></a>
+        </div>
+        <div id="div-nav">
+            <ul>
+                <a href="#sobre">
+                    <li> Minha História</li>
+                </a>
+                <a href="historia.html">
+                    <li> História do Timão</li>
+                </a>
+                </a>
+                <a href="cadastro.html">
+                    <li>Cadastro</li>
+                </a>
+                <a href="login.html">
+                    <li><img src="./assets/icon/user.png" alt="profile" style="width: 15px;">Login</li>
+                </a>
+            </ul>
+        </div>
+    </header>
+
+<div class="conteiner-quiz">
     <div id="pontuacaoEJogo">
+        <div id="intro">
+            <h1>Bem-vindo ao Quiz Fiel!</h1>
+            <p>Teste seus conhecimentos sobre o Timão. <br>Clique em INICIAR para começar. <br>Boa sorte!</p>
+        </div>
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+        <div id="pontuacao" class="resultado-conteiner">
+            <div id="pontuacaoDuranteJogo" class="flex-resultado ">
+                <span class="span-quantidade">Quantidade de acertos: <span id="spanCertas"></span></span>
+                <span class="span-quantidade">Quantidade de erros: <span id="spanErradas"></span></span>
             </div>
-            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
+            <div id="pontuacaoFinalJogo" class="flex-resultado ">
+                <span id="pontuacaoFinal" class="span-quantidade">Pontuação Final:
+                    <span id="spanPontuacaoFinal"></span>
                 </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
+                <span id="msgFinal" class="span-quantidade"></span>
             </div>
         </div>
 
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+        <div id="jogo" class="flex-colunar border-secondary">
 
-            <div id="infoQuestao" class="padding-8">
+            <div id="infoQuestao">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
                     questões.</span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestaoAtual">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
-            <div id="infoAlternativas" class="padding-8">
+            <div id="infoAlternativas">
                 <span><em>Escolha uma opção dentre as abaixo:</em></span>
             </div>
 
-            <div id="opcoes" class="flex-colunar padding-8">
+            <div id="opcoes" class="flex-questoes">
                 <span>
                     <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
                     <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
@@ -60,14 +89,15 @@
                 </span>
             </div>
 
-            <div id="botoes" class="flex-colunar padding-8">
-                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+            <div id="botoes" class="conteiner-botoes">
+                <button onclick="submeter()" id="btnSubmeter" class="btn-acao">Submeter resposta</button>
+                <button onclick="avancar()" class="btn-acao" id="btnProx" disabled>Avançar para Próxima</button>
                 <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                <button onclick="tentarNovamente()" class="btn-acao" id="btnTentarNovamente" disabled>Tentar novamente</button>
             </div>
 
         </div>
+    </div>
     </div>
 </body>
 
@@ -76,32 +106,139 @@
     const listaDeQuestoes = [
 
         {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
+            pergunta: "Qual o maior artilheiro da história do Corinthians?",
+            alternativaA: "Baltazar",
+            alternativaB: "Marcelinho Carioca",
+            alternativaC: "Rivelino",
+            alternativaD: "Claudio",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual Jogador tem mais jogos com a camisa do Corinthians?",
+            alternativaA: "Wladimir",
+            alternativaB: "Cássio",
+            alternativaC: "Luizinho",
+            alternativaD: "Ronaldo Giovanelli",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Quantos títulos do Campeonato Paulista o Corinthians tem?",
+            alternativaA: "31",
+            alternativaB: "30",
+            alternativaC: "28",
+            alternativaD: "27",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Quem é o maior artilheiro da história da Arena?",
+            alternativaA: "Ángel Romero",
+            alternativaB: "Róger Guedes",
+            alternativaC: "Yuri Alberto",
+            alternativaD: "Paolo Guerreiro",
             alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
+            pergunta: "Em que ano o Corinthians foi fundado?",
+            alternativaA: "1912",
+            alternativaB: "1910",
+            alternativaC: "1914",
+            alternativaD: "1913",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Em qual ano o Corinthians viveu o seu pior momento e foi rebaixado?",
+            alternativaA: "2009",
+            alternativaB: "2005",
+            alternativaC: "2004",
+            alternativaD: "2007",
             alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
-        }
+            pergunta: "Qual foi o último título do Corinthians e em que ano a equipe o conquistou?",
+            alternativaA: "Campeonato Paulista, 2025",
+            alternativaB: "Copa do Brasil, 2022",
+            alternativaC: "Campeonato Paulista, 2019",
+            alternativaD: "Copa Sul-Americana, 2024",
+            alternativaCorreta: "alternativaA"
+        },
 
+        {
+            pergunta: "Em que ano o Corinthians conquistou seu primeiro e inédito título da Copa Libertadores da América?",
+            alternativaA: "2013",
+            alternativaB: "2015",
+            alternativaC: "2012",
+            alternativaD: "2017",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Qual é o jogador histórico que usava a camisa 8 no Corinthians?",
+            alternativaA: "Zé Maria",
+            alternativaB: "Sócrates",
+            alternativaC: "Neto",
+            alternativaD: "Wladimir",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Quem é o atual camisa 10 do Corinthians?",
+            alternativaA: "Memphis Depay",
+            alternativaB: "Yuri Alberto",
+            alternativaC: "Rodrigo Garro",
+            alternativaD: "Andreas Carrilo",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Que jogador, apelidado de 'O Pé de Anjo', marcou o gol do título paulista de 1977?",
+            alternativaA: "Toninho Cerezo",
+            alternativaB: "Basílio",
+            alternativaC: "Jairo",
+            alternativaD: "Moisés",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Qual é o mascote oficial do Corinthians?",
+            alternativaA: "Leão",
+            alternativaB: "Gavião",
+            alternativaC: "São Jorge",
+            alternativaD: "Mosqueteiro",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Quem era o técnico do Corinthians na conquista do primeiro Campeonato Brasileiro em 1990?",
+            alternativaA: "Nelsinho Baptista",
+            alternativaB: "Vanderlei Luxemburgo",
+            alternativaC: "Oswaldo de Oliveira",
+            alternativaD: "Mário Jorge Lobo Zagallo",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Qual jogador detém o recorde de mais jogos disputados na Neo Química Arena?",
+            alternativaA: "Cássio",
+            alternativaB: "Fagner",
+            alternativaC: "Gil",
+            alternativaD: "Jadson",
+            alternativaCorreta: "alternativaB"
+        },
+
+          {
+            pergunta: "Qual clube jogou a final da Libertadores contra o Corinthians na campanha de 2012?",
+            alternativaA: "Santos",
+            alternativaB: "Vasco",
+            alternativaC: "Universidad de Chile",
+            alternativaD: "Boca Juniors",
+            alternativaCorreta: "alternativaD"
+        },
     ]
 
     // variáveis globais    
@@ -122,6 +259,7 @@
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
+        document.getElementById('intro').style.display = "none"
 
         document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
 
@@ -259,26 +397,26 @@
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
+            textoParaMensagemFinal = "Fiel, acorda! Cadê a raça? Estuda mais para a próxima!"
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
         else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            textoParaMensagemFinal = "Jogou com raça! Mas dá para apertar mais o passo na próxima rodada."
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
+            textoParaMensagemFinal = "Aqui é Corinthians! Mandou bem demais, craque!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
