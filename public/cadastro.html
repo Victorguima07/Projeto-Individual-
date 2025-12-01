@@ -15,7 +15,7 @@
 
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <header class="header">
     <div id="div-img">
@@ -23,12 +23,15 @@
     </div>
     <div id="div-nav">
       <ul>
-        <a href="#sobre">
-          <li> Minha História</li>
+        <a href="index.html">
+          <li>Início</li>
         </a>
         <a href="historia.html">
           <li> História do Timão</li>
         </a>
+        <a href="quiz.html">
+        <li> Quiz Fiel</li>
+      </a>
         </a>
         <a href="cadastro.html">
           <li>Cadastro</li>
@@ -42,52 +45,126 @@
   <!--header fim-->
   <main>
     <section>
-        <div class="contenier-cadastro">
-          <div class="conteiner-form">
-            <div id="conteiner-img">
+      <div class="contenier-cadastro">
+        <div class="conteiner-form">
+          <div id="conteiner-img">
             <img src="./assets/DeWatermark.ai_1762454841950.jpeg" alt="">
-            </div>
-            <div class="formulario">
-              <h2>Bem vindo</h2>
-              <h3>Insira suas informações pessoais para criar sua conta.</h3>
-              <p>Você ja tem uma conta? <a href="login.html">Entrar</a></p>
-              <br>
-              <div class="campo">
-                <span>Usuário:</span>
-                <input id="usuario_input" type="text" placeholder="Usuário">
-              </div>
-              <br>
-              <div class="campo">
-                <span>Nome:</span>
-                <input id="nome_input" type="text" placeholder="Nome Completo">
-              </div>
-              <br>
-              <div class="campo">
-                <span>E-mail:</span>
-                <input id="email_input" type="text" placeholder="nome@exemplo.com.br">
-              </div>
-              <br>
-              <div class="campo">
-                <span>Senha:</span>
-                <input id="senha_input" type="password" placeholder="*******">
-              </div>
-              <br>
-              <div class="campo">
-                <span>Confirmar Senha:</span>
-                <input id="confirmarSenha_input" type="text" placeholder="*******">
-              </div>
-              <br>
-              <button onclick="cadastrar()">Cadastrar</button>
-
-            </div>
           </div>
-      
+          <div class="formulario">
+            <h2>Bem vindo</h2>
+            <h3>Insira suas informações pessoais para criar sua conta.</h3>
+            <p>Você ja tem uma conta? <a href="login.html">Entrar</a></p>
+            <br>
+            <div class="campo">
+              <span>Usuário:</span>
+              <input id="nomeUsuario_input" type="text" placeholder="Usuário">
+            </div>
+            <br>
+            <div class="campo">
+              <span>Nome Completo:</span>
+              <input id="nome_input" type="text" placeholder="Nome Completo">
+            </div>
+            <br>
+            <div class="campo">
+              <span>E-mail:</span>
+              <input id="email_input" type="text" placeholder="nome@exemplo.com.br">
+            </div>
+            <br>
+            <div class="campo">
+              <span>Senha:</span>
+              <input id="senha_input" type="password" placeholder="*******">
+            </div>
+            <br>
+            <div class="campo">
+              <span>Confirmar Senha:</span>
+              <input id="confirmarSenha_input" type="password" placeholder="*******">
+            </div>
+            <br>
+            <button onclick="cadastrar()">Cadastrar</button>
+
+          </div>
+
+        </div>
+        <div class="alerta_erro">
+          <div class="card_erro" id="cardErro">
+            <div id="mensagem"></div>
+          </div>
+        </div>
+      </div>
     </section>
-
-
-
-
   </main>
+
 </body>
+
+</html>
+
+<script>
+
+  function cadastrar() {
+
+    var nome = nome_input.value.trim();
+    var nomeUsuario = nomeUsuario_input.value.trim();
+    var email = email_input.value.trim();
+    var senha = senha_input.value;
+    var confirmarSenha = confirmarSenha_input.value;
+
+    mensagem.innerHTML = "";
+    
+    if (!nome || !nomeUsuario || !email || !senha || !confirmarSenha) {
+      mensagem.innerHTML = "Preencha todos os campos!";
+      return;
+    }
+    
+    if (!email.includes("@") || !email.includes(".") || email.length < 5) {
+      mensagem.innerHTML = "Email inválido!";
+      return;
+    }
+
+    if (nomeUsuario.length < 3) {
+      mensagem.innerHTML = "O nome de usuário deve ter pelo menos 3 caracteres!";
+      return;
+    }
+
+    if (senha.length < 6) {
+      mensagem.innerHTML = "Sua senha deve ter pelo menos 6 caracteres!";
+      return;
+    }
+
+
+    if (senha !== confirmarSenha) {
+      mensagem.innerHTML = "As senhas não coincidem!";
+      return;
+    }
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nome: nome,
+        nomeUsuario: nomeUsuario,
+        email: email,
+        senha: senha
+      })
+    })
+      .then(async res => {
+        if (res.ok) {
+          mensagem.style.color = "green";
+          mensagem.innerHTML = "Cadastro realizado com sucesso!";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, 1500);
+        } else {
+          var erro = await res.text();
+          mensagem.innerHTML = `Erro ao cadastrar: ${erro}`;
+        }
+      })
+      .catch(erro => {
+        mensagem.innerHTML = `Erro no servidor:  ${erro}`;
+      });
+  }
+</script>
+
+</html>
 
 </html>

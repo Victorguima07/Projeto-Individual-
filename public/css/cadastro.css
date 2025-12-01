@@ -83,6 +83,12 @@ a:nth-of-type(4):hover {
     color: #DAA520;
 }
 
+a:nth-of-type(5):hover {
+    text-decoration: none;
+    transform: scale(1.1);
+    color: #DAA520;
+}
+
 /* fim do header */
 
 main {
@@ -98,6 +104,7 @@ main {
     align-items: center;
     justify-content: center;
     padding: 40px 0;
+    position: relative;
 }
 
 .contenier-cadastro img {
@@ -196,4 +203,21 @@ input:focus {
 .formulario button:hover {
     background-color: #FF1B1C;
     transform: scale(1.03);
+}
+
+.alerta_erro{
+    position: absolute; 
+    z-index: 1000; 
+    top: 400px; 
+    right: 30px;
+    display: flex;
+    justify-content: flex-end; 
+    margin: 0; 
+}
+.card_erro{
+    max-width: 300px;
+    width: auto;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px; 
 }

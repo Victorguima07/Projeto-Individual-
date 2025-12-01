@@ -12,3 +12,250 @@
 
 
 
+.janela {
+    
+    background-color: #F7F7FF;
+    height: 120vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    border-right: 6px solid #DAA520;
+    box-shadow: 2px 0 5px grey;
+    width: 18%;
+    height: 100%;
+    padding-top: 5rem;
+    background-color:#0A0000;
+}
+
+#img-header {
+    background-color: #F7F7FF;
+    width: 80%;
+   margin: 0 2rem 0 2rem;
+
+}
+
+.btn-nav-white img {
+    width: 30%;
+    height: 30%;
+    margin-right: 10px;
+    border: none;
+    box-shadow: none;
+}
+
+
+.header ul {
+    list-style: none;
+    display: flex;
+}
+
+a {
+    color: #F7F7FF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:nth-of-type(1):hover {
+    text-decoration: none;
+    color: #DAA520;
+}
+
+a:nth-of-type(2):hover {
+    text-decoration: none;
+    color: #DAA520;
+}
+
+a:nth-of-type(3):hover {
+    text-decoration: none;
+    color: #DAA520;
+}
+
+.hello {
+    text-align: center;
+    padding: 3rem 0;
+    font-weight: 600;
+    font-style: oblique;
+    font-family: 'Poppins', sans-serif;
+        color: #F7F7FF;
+}
+
+.btn-nav-white {
+    width: 80%;
+    margin: 1rem auto;
+    border: none;
+    border-radius: 20px;
+    background-color: #FF1B1C;
+    color: #F7F7FF;
+    font-weight: 300;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+.btn-nav-white:hover {
+    transform: scale(1.05);
+    background-color: #e41415;
+}
+
+
+.btn-nav-white a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+.btn-logout {
+    width: 60%;
+    margin: 2rem auto;
+    border: none;
+    border-radius: 20px;
+    background-color: #FF1B1C;
+    color: #F7F7FF;
+    font-weight: 300;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.btn-logout:hover {
+    transform: scale(1.05);
+    background-color: #e41415;
+}
+
+.btn-logout img {
+    width: 30%;
+    height: auto;
+    margin-right: 10px;
+    border: none;
+    box-shadow: none;
+}
+
+.dash-right {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #F7F7FF;
+    padding-top: 4rem;
+    background-image: url(../assets/neo_quimica_arena-wallpaper.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-attachment: fixed;
+}
+
+.registro-conteiner {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 64%;
+    background-color: #0A0000;
+    box-shadow: 15px 15px 10px 10px gray;
+}
+
+#div-titulo h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #DAA520; 
+    padding-bottom: 10px;
+    margin-top: 30px; 
+    margin-bottom: 20px;
+}
+
+.registro-conteiner button{
+    width: 40%;
+    margin-top: 2rem;
+    padding: 12px 0;
+    border: none;
+    border-radius: 20px;
+    background-color: #FF1B1C;
+    color: #F7F7FF;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.registro-conteiner button{
+    transform: scale(1.05);
+    background-color: #e41415;
+}
+
+
+#form-registro{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    
+}
+ #campo-data input {
+    border: none;
+    border-radius: 20px;
+    height: 30px;
+    width: 80%;
+    font-size: 1rem;
+   font-family: 'Poppins', sans-serif;
+   padding: 1rem;
+   margin-left: 1rem;
+}
+
+#slcLocal, #slcResultado {
+    border: none;
+    border-radius: 20px;
+    height: 30px;
+    width: 80%;
+    font-size: 1rem;
+   font-family: 'Poppins', sans-serif;
+   padding-left: 1rem;
+   margin-left: 1rem;
+    
+}
+
+.registro-conteiner span{
+    padding: 2rem;
+    font-weight: 300;
+    font-weight: bold;
+}
+
+#divResultado {
+    text-align: left;
+    margin-top: 40px; 
+    color: #F7F7FF; 
+    padding: 20px;
+    background-color: #0A0000;
+    box-shadow: 15px 15px 10px 10px gray;
+    border-radius: 20px;
+}
+
+.resultado-titulo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #DAA520; 
+    margin-bottom: 10px;
+}
+
+.resultado-linha {
+    font-size: 1rem;
+    margin-bottom: 5px; 
+    line-height: 1.5;
+}
+
+.resultado-linha b {
+    font-weight: 600;
+    color: #F7F7FF; 
+    margin-right: 5px;
+}

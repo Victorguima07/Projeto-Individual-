@@ -13,13 +13,16 @@
 
 </head>
 
-<body>
+<body onload="validarSessao()">
+
     <div class="janela">
 
 
         <div class="header-left">
 
-            <h1>Alma Corinthiana</h1>
+            <div id="div-img">
+                <a href="index.html"><img id="img-header" src="../assets/Logo-site.png" alt="Logo do site"></a>
+            </div>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
@@ -27,102 +30,146 @@
 
             <div class="btn-nav-white">
                 <a href="registros.html">
-                    <img src="" alt="">
+                    <img src="../assets/icon/registro.png" alt="registro">
                     <h3>Registro de Jogos</h3>
                 </a>
             </div>
 
             <div class="btn-nav-white">
                 <a href="./dashboard.html">
-                    <img src="" alt="">
+                    <img src="../assets/icon/dash.png" alt="dash-icon">
                     <h3>Meu Desempenho no Estádio</h3>
                 </a>
             </div>
 
-            <div class="btn-logout" onclick="limparSessao()">
-                <img src="" alt="">
+            <div id="" class="btn-logout" onclick="limparSessao()">
+                <img src="../assets/icon/saida.png" alt="sair">
                 <h3>Sair</h3>
             </div>
 
         </div>
 
         <div class="dash-right">
-            <div>
-                <h2>Registro de Jogos Assistidos</h2>
-                <div>
-                    <span>Data do jogo:</span><br>
-                    <input type="date" id="iptDataJogo">
+            <div class="registro-conteiner">
+                <div id="div-titulo">
+                    <h2>Registro de Jogos Assistidos</h2>
                 </div>
-                <br>
-                <div>
-                    <span>Local do Jogo:</span><br>
-                    <select name="selectLocal" id="slcLocal">
-                        <option value="0">Selecione...</option>
-                        <option value="Arena">Arena</option>
-                        <option value="Fora">Fora</option>
-                    </select>
-                </div>
-                <br>
+                <div id="form-registro">
+                    <div id="campo-data">
+                        <span>Data do jogo:</span><br>
+                        <input type="date" id="iptDataJogo">
+                    </div>
+                    <br>
+                    <div>
+                        <span>Local do Jogo:</span><br>
+                        <select name="selectLocal" id="slcLocal">
+                            <option value="0">Selecione...</option>
+                            <option value="Arena">Arena</option>
+                            <option value="Fora">Fora</option>
+                        </select>
+                    </div>
+                    <br>
 
-                <br>
-                <div>
-                    <span>Resultado do Jogo:</span><br>
-                    <select name="selectResultado" id="slcResultado">
-                        <option value="0">Selecione...</option>
-                        <option value="Vitória">Vitória</option>
-                        <option value="Empate">Empate</option>
-                        <option value="Derrota">Derrota</option>
-                    </select>
+                    <br>
+                    <div>
+                        <span>Resultado do Jogo:</span><br>
+                        <select name="selectResultado" id="slcResultado">
+                            <option value="0">Selecione...</option>
+                            <option value="Vitória">Vitória</option>
+                            <option value="Empate">Empate</option>
+                            <option value="Derrota">Derrota</option>
+                        </select>
+                    </div>
                 </div>
-                <br><br>
                 <button onclick="registrar()">Registrar</button>
             </div>
             <div>
-                <div id="divResultado"></div>
+                <div id="divResultado" style="display: none;"></div>
+
             </div>
         </div>
     </div>
 </body>
 <script>
 
-    function registrar() {
-        let data = iptDataJogo.value;
+    function validarSessao() {
+        var username = sessionStorage.USERNAME;
 
+        var b_usuario = document.getElementById("b_usuario");
+
+        if (username != null) {
+            b_usuario.innerHTML = username;
+        } else {
+            window.location = "../login.html";
+        }
+    }
+
+    function registrar() {
+
+        let data = iptDataJogo.value;
         let localJogo = slcLocal.value;
         let resultadoJogo = slcResultado.value;
-
 
         divResultado.innerHTML = ``;
 
         if (data == '' || localJogo == '0' || resultadoJogo == '0') {
             divResultado.innerHTML = `Por favor, preencha todos os campos`;
-        } else {
+            return;
+        }
+        var ValidacaoPrompt = false;
 
-            var ValidacaoPrompt = false;
+        while (!ValidacaoPrompt) {
 
-            while (!ValidacaoPrompt) {
-                var resposta = prompt("Deseja registrar os dados? (sim / não)");
+            var resposta = prompt("Deseja registrar os dados? (sim / não)");
 
-                if (resposta === null) {
+            if (resposta === null) {
+                alert("Registro cancelado.");
+                ValidacaoPrompt = true;
+                break;
+            }
 
-                    alert("Registro cancelado.");
-                    ValidacaoPrompt = true;
-                    break;
-                }
+            resposta = resposta.trim().toLowerCase();
 
-                resposta = resposta.trim().toLowerCase();
+            if (resposta == "sim") {
 
-                if (resposta == "sim") {
-                    ValidacaoPrompt = true;
-                    divResultado.innerHTML = `<h3> Dados Registrados: </h3>
-                <b> Data:</b> ${data}<br><b> Local:</b> ${localJogo}<br><b>Resultado:</b> ${resultadoJogo}<br>`;
-                }else if(resposta == "não" || resposta == "nao"){
-                    ValidacaoPrompt = true;
-                    alert("Registro cancelado.");
-            }else {
-                    alert("Resposta inválida! Digite apenas 'sim' ou 'não'.");
-                    ValidacaoPrompt = false;
-                }
+                ValidacaoPrompt = true;
+
+                fetch("/registro/registrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        idUsuario: sessionStorage.ID_USUARIO,
+                        dataPartida: data,
+                        local: localJogo,
+                        resultado: resultadoJogo
+                    })
+                })
+                    .then(res => {
+                        if (res.ok) {
+                            divResultado.innerHTML = `
+                        <h3 class="resultado-titulo"> Dados Registrados: </h3>
+                        <p class="resultado-linha"> <b>Data:</b> ${data}</p>
+                        <p class="resultado-linha"> <b>Local:</b> ${localJogo}</p>
+                        <p class="resultado-linha"> <b>Resultado:</b> ${resultadoJogo}</p>
+                    `;
+                            divResultado.style.display = 'block';
+                        } else {
+                            throw "Erro ao registrar no banco!";
+                        }
+                    })
+                    .catch(erro => {
+                        console.error("ERRO NO REGISTRO:", erro);
+                        alert("Ocorreu um erro ao registrar.");
+                    });
+
+            } else if (resposta == "não" || resposta == "nao") {
+                ValidacaoPrompt = true;
+                alert("Registro cancelado.");
+            } else {
+                alert("Resposta inválida! Digite apenas 'sim' ou 'não'.");
+                ValidacaoPrompt = false;
             }
         }
     }

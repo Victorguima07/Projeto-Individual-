@@ -82,6 +82,11 @@ a:nth-of-type(4):hover {
     color: #DAA520;
 }
 
+a:nth-of-type(5):hover {
+    text-decoration: none;
+    transform: scale(1.1);
+    color: #DAA520;
+}
 body {
     background-color: #0A0000;
 }

@@ -1,37 +1,37 @@
-// sessão
 function validarSessao() {
-    var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
-
+    var email = sessionStorage.EMAIL;
+    var nome = sessionStorage.NOME;
+    
     var b_usuario = document.getElementById("b_usuario");
-    var b_cpf = document.getElementById("b_cpf");
 
-    if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
+    if (email && nome) {
+        if (b_usuario) {
+            b_usuario.innerHTML = nome;
+        }
     } else {
-        window.location = "../login.html";
+        
+        window.location = "login.html";
     }
 }
 
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "../login.html";
+    window.location = "login.html";
 }
 
-// carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "flex";
+    if (divAguardar) divAguardar.style.display = "flex";
 }
 
 function finalizarAguardar(texto) {
     var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "none";
+    if (divAguardar) divAguardar.style.display = "none";
 
     var divErrosLogin = document.getElementById("div_erros_login");
-    if (texto) {
+
+    if (texto && divErrosLogin) {
         divErrosLogin.style.display = "flex";
         divErrosLogin.innerHTML = texto;
     }
 }
-
