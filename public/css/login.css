@@ -217,11 +217,13 @@ input:focus {
     margin: 0; 
 }
 .card_erro{
-    max-width: 300px;
+    max-width: 200px;
     width: auto;
     padding: 15px;
-    background-color: white;
+    background-color: #0A0000;
     border-radius: 8px; 
- 
 }
 
+#mensagem{
+    color: #F7F7FF;
+}

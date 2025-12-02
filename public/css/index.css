@@ -260,6 +260,7 @@ a:nth-of-type(5):hover {
     color: #0A0000;
     padding-top: 3rem;
     border-top: 5px solid #DAA520;
+    margin-top: 4rem;
 }
 
 .footer-container {
@@ -308,7 +309,7 @@ a:nth-of-type(5):hover {
 .footer-section p {
     margin-bottom: 10px;
     font-size: 1rem;
-}
+}   
 
 
 .footer-bottom {

@@ -108,13 +108,13 @@
         </div>
 </body>
 <script>
-    function validarSessao() {
+      function validarSessao() {
         var username = sessionStorage.USERNAME;
 
         var b_usuario = document.getElementById("b_usuario");
 
         if (username != null) {
-            b_usuario.innerHTML = username;
+            b_usuario.innerHTML = sessionStorage.USERNAME;
         } else {
             window.location = "../login.html";
         }
@@ -122,10 +122,11 @@
 
     let proximaAtualizacao;
 
-    window.onload = function () {
-        carregarKPIs();
-        obterDadosGraficos();
-    };
+ window.onload = function () {
+    validarSessao();
+    carregarKPIs();
+    obterDadosGraficos();
+};
 
     function carregarKPIs() {
         fetch(`/dashboard/listar/${sessionStorage.ID_USUARIO}`)
@@ -181,7 +182,7 @@
         kpiTotalEmpates.innerHTML = empates;
         kpiTotalDerrotas.innerHTML = derrotas;
         kpiAproveitamento.innerHTML = aproveitamento.toFixed(1) + "%";
-        kpiAssistido.innerHTML = ultimoJogo;
+        kpiAssistido.innerHTML = dados[0].data;
     }
 
     function obterDadosGraficos() {
@@ -278,6 +279,11 @@
         });
 
     }
+
+  function limparSessao() {
+    window.location.href = "../login.html";
+}
+
 
 </script>
 
