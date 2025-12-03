@@ -167,7 +167,7 @@
                 derrotas++;
             }
 
-            ultimoJogo = jogo.data;
+            ultimoJogo = jogo.dataFormatada;
         }
 
         let aproveitamento = 0;
@@ -248,7 +248,7 @@
         for (i = 0; i < dados.length; i++) {
             let jogo = dados[i];
 
-            labels.push(jogo.data);
+            labels.push(jogo.dataFormatada);
 
             if (jogo.local == "Arena") {
                 jogosArena.push(1);
